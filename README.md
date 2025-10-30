@@ -40,28 +40,41 @@ Le programme génère automatiquement un tableau de 10 000 entiers aléatoires e
 ##  Exemple de sortie console
 
 ```
-BitPackingExample - démonstration
+BitPacking - démonstration
 
---- CROSS (chevauchement autorisé) ---
-n=10000, k=12
-compression : total 120000 ns, moyenne 24.00 µs
-get (1000 appels aléatoires) : moyenne 0.50 ms
-décompression : moyenne 18.20 µs
+--- CROSS ---
+n=10000, k=15
+compression : total 1379600 ns, moyenne 275,92 µs
+get de 1000 valeurs aléatoires : total 1932500 ns, moyenne 0,39 ms par itération
+décompression : total 2494200 ns, moyenne 498,84 µs
 Vérification : décompression == original : true
 
---- NOCROSS (pas de split entre mots) ---
-n=10000, k=12
-compression : total 95000 ns, moyenne 19.00 µs
-get (1000 appels aléatoires) : moyenne 0.47 ms
-décompression : moyenne 16.80 µs
+--- NOCROSS ---
+n=10000, k=15
+compression : total 446200 ns, moyenne 89,24 µs
+get de 1000 valeurs aléatoires : total 2660800 ns, moyenne 0,53 ms par itération
+décompression : total 1667100 ns, moyenne 333,42 µs
 Vérification : décompression == original : true
 
---- OVERFLOW (zone de débordement) ---
-n=10000, smallK=5, fieldBits=7, overflowCount=200
-compression : total 150000 ns, moyenne 30.00 µs
-get (1000 appels aléatoires) : moyenne 0.51 ms
-décompression : moyenne 20.00 µs
+--- OVERFLOW ---
+n=10000, petitK=6, bitsChamp=7, nbDebordement=20
+compression : total 5456400 ns, moyenne 1091,28 µs
+get de 1000 valeurs aléatoires : total 699200 ns, moyenne 0,14 ms par itération      
+décompression : total 3670300 ns, moyenne 734,06 µs
 Vérification : décompression == original : true
+
+Exemples get(i) :
+i=0 original=1024 cross.get=1024 nocross.get=1024 overflow.get=1024
+i=1 original=0 cross.get=0 nocross.get=0 overflow.get=0
+i=2 original=34 cross.get=34 nocross.get=34 overflow.get=34
+i=3 original=29 cross.get=29 nocross.get=29 overflow.get=29
+i=4 original=45 cross.get=45 nocross.get=45 overflow.get=45
+i=500 original=2048 cross.get=2048 nocross.get=2048 overflow.get=2048
+i=501 original=46 cross.get=46 nocross.get=46 overflow.get=46
+i=502 original=10 cross.get=10 nocross.get=10 overflow.get=10
+i=503 original=10 cross.get=10 nocross.get=10 overflow.get=10
+i=504 original=19 cross.get=19 nocross.get=19 overflow.get=19
+
 ```
 
 ---
