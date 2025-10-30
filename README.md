@@ -76,27 +76,6 @@ i=503 original=10 cross.get=10 nocross.get=10 overflow.get=10
 i=504 original=19 cross.get=19 nocross.get=19 overflow.get=19
 
 ```
-
----
-
-## Détails techniques
-
-- **Représentation binaire** : chaque entier est stocké sur *k* bits déterminés automatiquement.
-- **Compression bit à bit** : utilisation d’opérations de masquage (`maskLow(k)`) et de décalage (`<<`, `>>>`) pour empaqueter les bits.
-- **Overflow** : une valeur nécessitant plus de bits que `petitK` est placée dans une zone de débordement référencée par un index compacté.
-- **Benchmark** : utilisation de `System.nanoTime()` pour mesurer les temps avec plusieurs itérations et warm-up pour stabiliser la JVM.
-
----
-
-## Tests et vérification
-
-- La méthode `main()` contient un protocole de test complet :
-  - Génération des données
-  - Compression/Décompression
-  - Accès aléatoire (`get()`)
-  - Vérification de la fidélité (`Arrays.equals`)
-- Les temps d’exécution moyens sont affichés dans la console.
-
 ---
 
 ## Auteur
