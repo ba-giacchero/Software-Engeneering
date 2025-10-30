@@ -11,7 +11,6 @@
 - **Benchmarks intégrés** pour mesurer la vitesse de compression, décompression et lecture (`get()`).
 
 
-
 ## Compilation et exécution
 
 ### Prérequis
