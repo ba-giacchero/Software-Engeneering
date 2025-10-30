@@ -86,15 +86,6 @@ Vérification : décompression == original : true
 
 ---
 
-## 🚀 Extensions possibles
-
-- Implémentation **multi-thread** pour la compression de grands tableaux.  
-- Adaptation automatique du mode de compression selon le contenu.  
-- Intégration réseau (simulation de transmission avec latence).  
-- Ajout d’un export JSON ou binaire pour l’envoi sur le web.  
-
----
-
 ## Auteur
 
 | Nom | Prénom |
